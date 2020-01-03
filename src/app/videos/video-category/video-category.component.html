@@ -1,0 +1,53 @@
+<div class="container" >
+
+    <div class="row">
+      <div *ngFor="let image of showvideoslider;let i= index">
+        <div  *ngIf="3 >  i ">
+      <div class="col-md-3" style="display: inherit;" >
+        <div class="item">
+  <img class="slide-image" style="padding:2px;" src="{{image._embedded['wp:featuredmedia'][0].source_url}}" height="140" width="160">
+     </div>
+      </div>
+      </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div *ngFor="let image of showvideoslider;let i= index">
+        <div  *ngIf="i > 3 && 6>i ">
+      <div class="col-md-3" style="display: inherit;" >
+        <div class="item" >
+    <img class="slide-image" style="padding:2px;" src="{{image._embedded['wp:featuredmedia'][0].source_url}}" height="140" width="160">
+    </div>
+      </div>
+      </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div *ngFor="let image of showvideoslider;let i= index">
+        <div  *ngIf="i > 6 && 9>i ">
+      <div class="col-md-3" style="display: inherit;" >
+        <div class="item" >
+  <img class="slide-image" style="padding:2px;" src="{{image._embedded['wp:featuredmedia'][0].source_url}}" height="140" width="160">
+   </div>
+      </div>
+      </div>
+      </div>
+    </div>
+    <br>
+
+<br>
+<mdb-carousel class="carousel slide carousel-fade" >
+  <h3>Promos</h3>
+  <mdb-carousel-item *ngFor="let image of showvideoslider">
+    <div class="view w-100">
+  
+   <a href="{{image.ACF.voot_link}}">
+      <img class="d-block w-100" class="object-img" src="{{image._embedded['wp:featuredmedia'][0].source_url}}" height="200" width="250"> 
+    </a>
+      <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+    </div>
+ 
+  </mdb-carousel-item>
+</mdb-carousel>

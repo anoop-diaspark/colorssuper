@@ -1,0 +1,110 @@
+
+  
+   
+        <footer class="page-footer font-small indigo " >
+
+            <!-- Footer Links -->
+            <div class="container text-center text-md-left">
+        <br>
+              <!-- Grid row -->
+              <div class="row">
+        
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
+        
+                  <!-- Links -->
+                  <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Colors Super Videos</h5>
+        
+                  <ul class="list-unstyled" *ngFor="let show of Videos">
+                    <li>
+                      <a  [routerLink]="[show.object, 'promos']" >{{show.title}}</a>
+                   
+                    </li>
+        
+                  </ul>
+        
+                </div>
+                <!-- Grid column -->
+        
+                <hr class="clearfix w-100 d-md-none">
+        
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
+        
+                  <!-- Links -->
+                  <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Colors Super Shows</h5>
+        
+                  <ul class="list-unstyled" *ngFor="let show of shows">
+                    <li>
+                      <a href="{{show.url}}">{{show.title}}</a>
+                    </li>
+        
+                  </ul>
+        
+                </div>
+                <!-- Grid column -->
+        
+                <hr class="clearfix w-100 d-md-none">
+        
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
+        
+                  <!-- Links -->
+                  <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About Colors Super</h5>
+        
+                  <ul class="list-unstyled" *ngFor="let show of Super">
+                    <li>
+                      <a *ngIf = "show.title == 'Home'" routerLink="" >{{show.title}}</a>
+                    </li>
+                    <li>
+                      <a *ngIf = "show.title == 'Gallery'" routerLink="gallery" >{{show.title}}</a>
+                    </li>
+                    <li>
+                      <a *ngIf = "show.title == 'Privacy Policy'" routerLink="privacy-policy" >{{show.title}}</a>
+                    </li>
+                    <li>
+                      <a *ngIf = "show.title == 'Terms of Use'" routerLink="terms-of-use" >{{show.title}}</a>
+                    </li>
+                    <li>
+                      <a *ngIf = "show.title == 'Contact Us'" routerLink="contact-us" >{{show.title}}</a>
+                    </li>
+        
+                  </ul>
+        
+                </div>
+                <!-- Grid column -->
+        
+                <hr class="clearfix w-100 d-md-none">
+        
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
+        
+                  <!-- Links -->
+              
+             
+                  <img src="assets/colorssuper/viacom-18-logo.png" alt="">
+         
+                  <ul class="list-unstyled">
+                    <li>
+                      
+                    </li>
+        
+                  </ul>
+        
+                </div>
+                <!-- Grid column -->
+        
+              </div>
+              <!-- Grid row -->
+        
+            </div>
+            <!-- Footer Links -->
+        
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">
+             © Viacom18 Media Pvt. Ltd. 2018:
+            </div>
+            <!-- Copyright -->
+        
+          </footer>
+   

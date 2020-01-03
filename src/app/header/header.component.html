@@ -1,0 +1,151 @@
+
+       <nav class="navbar navbar-expand-sm bg-light navbar-light">
+        <!-- Brand -->
+        <!-- <a href="{{logourl}}" class="navbar-brand"> -->
+          <a class="nav-link" routerLink="">
+          <img  src="{{logo[0]}}" alt="logo" >
+        </a>
+          <!-- <img src="" height="28" alt="CoolBrand"> -->
+
+      <!-- </a> -->
+      
+        <!-- Links -->
+        <ul class="navbar-nav" *ngFor="let headermenu of header" >
+          <li class="nav-item" *ngIf="headermenu.title == 'Home'">
+            <a class="nav-link" routerLink="">HOME</a>
+          </li>
+        
+      
+      
+     
+          <li class="nav-item dropdown" *ngIf="headermenu.title == 'Shows'">
+            <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown">
+              SHOWS</a> 
+        
+         
+            <div class="dropdown-menu" >
+              <!-- <a class="dropdown-item"  href="{{ showmenu.url }}">{{ showmenu.title }}</a> -->
+         
+              <div class="container">
+                <div class="row">
+              <a *ngIf="moreshows" class="nav-link" (click)="moreFictionData(1)">more</a>
+                </div>
+              </div>
+
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-3"  style="display: inherit;"  *ngIf="moreshows">
+                    <div class="item" *ngFor="let image of imgshows| slice:0:5;">
+                      <a  href="{{ image.ACF.voot_link }}" >
+                        <img class="slide-image" style="padding:2px;" src="{{image._embedded['wp:featuredmedia'][0].source_url}}"
+                          height="120" width="150" alt="{{image.title.rendered}}">
+                        <div class="row">
+                          <div class="col-md-3" style="display: inherit;">
+                            <h6 style="padding:10px;">{{image.title.rendered}}</h6>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>  
+                </div>
+                <!-- <a *ngFor="let headermenu of  imgshows" class="dropdown-item" href="{{ headermenu.url }}">{{ headermenu.title }}</a> -->
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-3"  style="display: inherit;"  *ngIf="!moreshows">
+                      <div class="item" *ngFor="let image of imgshows| slice:0:7;">
+                        <a  href="{{ image.ACF.voot_link }}" >
+                          <img class="slide-image" style="padding:2px;" src="{{image._embedded['wp:featuredmedia'][0].source_url}}"
+                            height="120" width="150" alt="{{image.title.rendered}}">
+                          <div class="row">
+                            <div class="col-md-3" style="display: inherit;">
+                              <h6 style="padding:10px;">{{image.title.rendered}}</h6>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>  
+                  </div>
+        
+            </div>
+          </li>
+
+          <li class="nav-item dropdown" *ngIf="headermenu.title == 'Videos'">
+            <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+              VIDEOS
+            </a>
+
+            <div class="dropdown-menu" >
+              <div class="container">
+                <div class="row">
+              <a *ngIf="moreVideos" class="nav-link" (click)="moreFictionData(2)">more</a>
+                </div>
+              </div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-3"  style="display: inherit;" *ngIf="moreVideos">
+                    <div class="item" *ngFor="let image of imgvideo| slice:0:3;">
+                      <a href="{{ image.ACF.voot_link }}" >
+                        <img class="slide-image" style="padding:2px;" src="{{image._embedded['wp:featuredmedia'][0].source_url}}"
+                          height="120" width="150" alt="{{image.title.rendered}}">
+                        <div class="row">
+                          <div class="col-md-3" style="display: inherit;">
+                            <h6 style="padding:10px;">{{image.title.rendered}}</h6>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-3"  style="display: inherit;" *ngIf="!moreVideos">
+                    <div class="item" *ngFor="let image of imgvideo| slice:0:5;">
+                      <a  href="{{ image.ACF.voot_link }}" >
+                        <img class="slide-image" style="padding:2px;" src="{{image._embedded['wp:featuredmedia'][0].source_url}}"
+                          height="120" width="150" alt="{{image.title.rendered}}">
+                        <div class="row">
+                          <div class="col-md-3" style="display: inherit;">
+                            <h6 style="padding:10px;">{{image.title.rendered}}</h6>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>  
+                </div>
+                <!-- <a *ngFor="let headermenu of  filterItemsOfType('626')" class="dropdown-item" href="{{ headermenu.url }}">{{ headermenu.title }}</a> -->
+            
+              </div>
+     
+          </li>
+
+          <li class="nav-item" *ngIf="headermenu.title == 'Gallery'">
+            <a class="nav-link" routerLink="gallery" >GALLERY</a>
+            <!-- <a class="nav-link" href="{{ headermenu.url }}">GALLERY</a> -->
+          </li>
+
+          <li class="nav-item dropdown" *ngIf="headermenu.title == 'More'">
+            <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+            
+              MORE
+            </a>
+            <!-- <div *ngFor="let headermenu of  filterItemsOfType('350')"> -->
+            <div class="dropdown-menu" >
+               <a *ngFor="let headermenu of  filterItemsOfType('350')" >
+              <a class="dropdown-item" *ngIf = "headermenu.title == 'Events'" routerLink="events">{{ headermenu.title }}</a>
+              <a class="dropdown-item" *ngIf = "headermenu.title == 'Schedules'" routerLink="schedules">{{ headermenu.title }}</a>
+              <a class="dropdown-item" *ngIf = "headermenu.title == 'Social'" routerLink="social">{{ headermenu.title }}</a>
+            </a>
+            <!-- </div> -->
+            </div>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto">
+          <!-- <a href="{{socialSite.facebook}}" class="nav-link"><i class="fa fa-camera-retro fa-lg"></i><img src="assets/colorssuper/facebook.png" alt=""></a> -->
+      <li>
+          <!-- <a href="{{socialSite.twitter}}" class="nav-link"><i class="fa fa-twitter fa-lg"></i><img src="assets/colorssuper/twitter.png" alt=""></a> -->
+      <li>
+          <!-- <a href="{{socialSite.instagram}}" class="nav-link"><i class="fa fa-pinterest fa-lg"></i><img src="assets/colorssuper/instagram.png" alt=""></a> -->
+      </li>
+     
+  </ul>
+      </nav>

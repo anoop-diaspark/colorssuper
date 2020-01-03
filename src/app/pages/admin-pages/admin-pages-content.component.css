@@ -1,0 +1,30 @@
+
+    
+.item img{
+    border-radius: 4%;
+}
+.item img:hover{
+    height: 200px;
+    width: auto;
+    overflow: hidden;
+}
+.item h6{
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    color: white;
+}
+
+
+nav {
+  background-color: coral;
+}
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+.center {
+  display: flex;
+  justify-content: center;
+}

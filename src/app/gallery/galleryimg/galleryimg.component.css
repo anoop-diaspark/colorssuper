@@ -1,0 +1,14 @@
+.item img{
+    border-radius: 4%;
+}
+.item img:hover{
+    height: 200px;
+    width: auto;
+    overflow: hidden;
+}
+.item h6{
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    color: white;
+}

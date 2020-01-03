@@ -1,0 +1,102 @@
+
+
+<div *ngIf = "showbyslug && shows && showvideoslider; else loading">
+<div   style="padding: 0px; overflow:hidden; ;">
+
+<div class="container-fluid" style="padding: 0px;">
+  <div class="row"> 
+ 
+     <div > 
+
+
+           <img src="{{showbyslug.ACF.single_detailed_banner_image.url }}" alt="company logo" style="width: 100%;">
+        
+     </div>     
+  </div>
+</div>
+</div>
+<br>
+<div class="container" >
+<div class="row" >
+  <h1>{{showbyslug.title.rendered }}</h1>
+</div>
+<br>
+<div class="row" >
+  <h6  class="text-danger">{{showbyslug.ACF.start_time}}-{{showbyslug.ACF.end_time}}</h6>
+</div>
+</div>
+<br>
+<div class="container" >
+  <div class="row">
+<div class="col-lg-8">
+  <p class="some__class">{{showbyslug.content.rendered}} </p>
+</div>
+<br>
+
+<mdb-carousel class="carousel slide carousel-fade" >
+  <h3>Promos</h3>
+  <mdb-carousel-item *ngFor="let image of showvideoslider">
+    <div class="view w-100">
+  
+   <a href="{{image.ACF.voot_link}}">
+      <img class="d-block w-100" class="object-img" src="{{image._embedded['wp:featuredmedia'][0].source_url}}" height="200" width="250"> 
+    </a>
+      <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+    </div>
+ 
+  </mdb-carousel-item>
+</mdb-carousel>
+</div>
+</div>
+<div class="container" >
+  <div class="col-sm-8" *ngIf = "showbyslug.ACF.mp3_ringtones != 'no'">
+    <audio controls="">
+
+      <source src=" {{showbyslug.ACF.upload_ringtone.url}}" type="audio/mpeg">
+     
+    </audio>
+    <a  href="{{showbyslug.ACF.upload_ringtone.url}}" download='{{showbyslug.ACF.upload_ringtone.url}}'>
+      <i class="fa fa-download" aria-hidden="true" title="Download"></i></a>
+  </div>
+</div>
+<br>
+<!-- <div class="container" > 
+  <div class="carousel slide" id="myCarousel">
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="row">
+                    <div class="col-xs-3" *ngFor="let image of shows| slice:0:3;"><a href="#"><img src="{{image.ACF.single_detailed_banner_image.url}}" class="img-responsive"></a></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="row">
+                    <div class="col-xs-3" *ngFor="let image of shows| slice:0:7;"><a href="#"><img src="{{image.ACF.single_detailed_banner_image.url}}" class="img-responsive"></a></div>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+    </div>
+</div> -->
+<div class="container" >
+  <h2>Related Shows</h2>
+<mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"
+  [animation]="'slide'">
+  <mdb-carousel-item *ngFor="let item of slides; let i = index">
+    <div class="col-md-4" [ngClass]="{'d-none d-md-block': cardIndex !== 0}" *ngFor="let card of item; let cardIndex = index" height="200" width="250">
+      <mdb-card class="my-1">
+        <mdb-card-img [src]="card._embedded['wp:featuredmedia'][0].source_url" alt="Card image cap"></mdb-card-img>
+  
+      </mdb-card>
+     
+      <!-- <img class="d-block w-100" class="object-img" src="{{card._embedded['wp:featuredmedia'][0].source_url}}" >  -->
+    </div>
+  </mdb-carousel-item>
+</mdb-carousel>
+</div>
+</div>
+<ng-template #loading >
+  <div class="abc">
+  <img  src = "assets\colorssuper\25.gif" >
+</div>
+</ng-template>
